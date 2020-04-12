@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
  <html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
@@ -6,32 +6,21 @@
         <title>Mom's birthday Page</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="./css/styles.css">
     </head>
     <body>
-       
-        <script src="./pixi.min.js"></script>
-        <script>
-            let app = new PIXI.Application({width:window.innerWidth, height:window.innerHeight});
-            document.body.appendChild(app.view);
-
-            let img = new PIXI.Sprite.from("marley-bros.jpg");
-            img.width = window.innerWidth;
-            img.height = window.innerHeight;
-            app.stage.addChild(img);
-
-            depthMap = new PIXI.Sprite.from("marley-bros-map.jpg");
-
-            app.stage.addChild(depthMap);
-
-            displacementFilter = new PIXI.filters.DisplacementFilter(depthMap);
-            app.stage.filters= [displacementFilter];
-
-            window.onmousemove = (e) => {
-                displacementFilter.scale.x = (window.innerWidth / 2 - e.clientX) / 20;    
-                displacementFilter.scale.y = (window.innerHeight / 2 - e.clientY) / 20;    
-
-            }
-        </script>
+        <h1>Happy Birthday! 🎉</h1>
+        <div class="scene"></div>
+    <script>
+        document.body.addEventListener('load',function(){
+  var audio = new Audio('./audio/living-it-up.mp3');
+  audio.play();
+}, true);
+    </script>
+    <script src="/js/underscore.min.js"></script>    
+    <script src="./js/pixi.min.js"></script>
+    <script src="/js/emoji-mouse.js"></script>
+    <script src="./js/depthmap.js"></script>
+  
     </body>
 </html>

@@ -1,0 +1,60 @@
+:root {
+    --size: 60px;
+    /*Size of the emoji*/
+    --x: 0;
+    --y: 0;
+}
+
+body,
+html {
+    height: 100%;
+}
+canvas{
+    align-items: center;
+    justify-content: center;
+    max-width: 40%;
+    height:100%;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    font-size: var(--size);
+    font-family: sans-serif;
+    line-height: 1.25;
+    overflow: hidden;
+    background: radial-gradient(circle,
+            rgb(43, 222, 228) 0%,
+            rgb(108, 231, 240) 100%);
+}
+
+/*  The CSS for the emojis animation cycle */
+.emoji {
+    position: absolute;
+    opacity: 1;
+    user-select: none;
+    
+    animation: animoji 800ms cubic-bezier(0.76, 0, 0.36, -0.56) forwards;
+}
+
+@keyframes animoji {
+    0% {
+        opacity: 0;
+        transform: scale(0.1);
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    35% {
+        transform: rotate(calc(var(--x))) scale(1);
+    }
+
+    100% {
+        transform:
+            translate(calc((var(--x) * -1px) - calc(var(--size) / 2)),
+                calc((var(--y) * -1px) - calc(var(--size) / 1.5))) scale(0.1);
+    }
+}
